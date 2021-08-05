@@ -24,11 +24,8 @@ namespace TaskWeapon
             if (_bullets <= 0)
                 throw new InvalidOperationException();
 
-            if (player.IsAlive)
-            {
-                player.TakeDamage(_damage);
-                _bullets -= 1;
-            }
+            _bullets -= 1;
+            player.TryTakeDamage(_damage);
         }
     }
 }
